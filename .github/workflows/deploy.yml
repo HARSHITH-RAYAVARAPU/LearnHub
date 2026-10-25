@@ -7,22 +7,16 @@ on:
       - master
   workflow_dispatch:
 
-# Permissions required to deploy to GitHub Pages
+# Permissions required to push the built web app to gh-pages branch
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
-# Allow one concurrent deployment
 concurrency:
   group: 'pages'
   cancel-in-progress: true
 
 jobs:
   build-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
@@ -44,11 +38,8 @@ jobs:
       - name: 🏗️ Build Web Release
         run: flutter build web --release --base-href /LearnHub/
 
-      - name: 📤 Upload GitHub Pages Artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: 🚀 Deploy to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: build/web
-
-      - name: 🚀 Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          folder: build/web
+          branch: gh-pages
