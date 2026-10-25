@@ -1,0 +1,11 @@
+{
+  "name": "LearnHub",
+  "short_name": "LearnHub",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#4F46E5",
+  "description": "Next-Gen Responsive Learning Management and Course Catalog Platform.",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false
+}
