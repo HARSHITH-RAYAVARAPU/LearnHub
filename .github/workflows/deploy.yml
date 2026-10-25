@@ -42,7 +42,7 @@ jobs:
         run: flutter test
 
       - name: 🏗️ Build Web Release
-        run: flutter build web --release --base-href ./
+        run: flutter build web --release --base-href /LearnHub/
 
       - name: 📤 Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3
